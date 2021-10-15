@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>할일 목록</h1>
+    <button id = "add-Btn">목록 추가하기</button>
+    <ul id = "list">
+        <li>할일1</li>
+        <li>할일2</li>
+        <li>할일3</li>
+    </ul>
+    <script>
+        let addBtn = document.getElementById("add-Btn");
+        let list = document.getElementById("list");
+        let li = list.getElementsByTagName("li");
+
+        addBtn.addEventListener("click", function(){
+            //할일 목록 추가 구현
+            let txt = prompt("할일의 제목을 입력해주세요");
+            list.innerHTML += "<li>" + txt + "</li>";
+
+            // let li = document.createElement("li");
+            // li.innerHTML = txt;
+            // list.appendChild(li);
+        });
+    </script>
+</body>
+</html>

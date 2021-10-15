@@ -1,0 +1,77 @@
+.container{
+    border: 1px solid red;
+    width: 1200px;
+    margin: auto;
+}
+
+header{
+    height: 100px;
+}
+
+header > div{
+    border: 1px solid blue;
+    height: 100px;
+}
+
+.header-logo{
+    float: left;
+    width: 200px;
+}
+
+.navi{
+    float: right;
+    width: 600px;
+}
+
+.slide{}
+
+.slide div{
+    border: 1px solid green;
+    height: 300px;
+}
+
+.items{
+    overflow: hidden;
+}
+
+.items > div{
+    border: 1px solid black;
+    height: 200px;
+    box-sizing: border-box;
+    float: left;
+}
+
+.news{
+    width: 350px;
+}
+
+.banner{
+    width: 350px;
+}
+
+.shortlink{
+    width: 350px;
+}
+
+footer{
+    overflow: hidden;
+}
+
+footer > div{
+    border: 1px solid yellow;
+    height: 100px;
+    box-sizing: border-box;
+    float: left;
+}
+
+.footer-logo{
+    width: 200px;
+}
+
+.copyright{
+    width: 800px;
+}
+
+.sns{
+    width: 200px;
+}
