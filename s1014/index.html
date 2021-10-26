@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="msg"></div>
+
+    <input id="OpenWin" type="button" value="윈도우 OPEN">
+    <input id="OpenWin_option" type="button" value="윈도우 OPEN_옵션">
+    <input id="OpenWin_blur" type="button" value="윈도우 Blur">
+    <input id="OpenWin_focus" type="button" value="윈도우 Focus">
+    <input id="OpenWin_close" type="button" value="윈도우 Close">
+    <input id="OpenWin_IsOpen" type="button" value="윈도우가 열려 있습니까???">
+
+    <script>
+        let msg = document.querySelector("#msg");
+        msg.innerHTML = "현재 창의 상태를 나타냅니다";
+
+        let w = document.querySelector("#OpenWin");
+        let openedWin;
+        let wOption = document.querySelector("#OpenWin_option");
+        let wBlur = document.querySelector("#OpenWin_blur");
+        let wFocus = document.querySelector("#OpenWin_focus");
+        let wClose = document.querySelector("#OpenWin_close");
+        let wIsOpen = document.querySelector("#OpenWin_IsOpen");
+
+        function funOpenWin(){
+            window.open("#");
+        }
+
+        function funOpenWin_option(){
+            openedWin = window.open("#", "_blank",
+                "left=100, top=100, width=400, height=400");
+        }
+
+        function funOpenWin_blur(){
+            msg.innerHTML = "윈도우가 onblur 되었습니다.";
+            openedWin.blur();
+        }
+
+        function funOpenWin_focus(){
+            msg.innerHTML = "윈도우가 setfocus 되었습니다.";
+            openedWin.focus();
+        }
+
+        function funOpenWin_close(){
+            openedWin.close();
+            funIsOpen();
+        }
+
+        function funIsOpen(){
+            if(!openedWin){
+                msg.innerHTML = "열린 윈도우가 없습니다.";
+            }else{
+                if(openedWin.closed){
+                    msg.innerHTML = "열린 윈도우가 없습니다.";
+                }else{
+                    msg.innerHTML = "윈도가 오픈되었습니다.";
+                }
+            }
+        }
+
+        w.addEventListener("click", funOpenWin);
+        wOption.addEventListener("click", funOpenWin_option);
+        wBlur.addEventListener("click", funOpenWin_blur);
+        wFocus.addEventListener("click", funOpenWin_focus);
+        wClose.addEventListener("click", funOpenWin_close);
+        wIsOpen.addEventListener("click", funIsOpen);
+
+    </script>
+</body>
+</html>
