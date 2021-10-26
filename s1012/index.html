@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">할일 목록</h1>
+    <button id = "add-Btn">목록 추가하기</button>
+    <ul id = "list">
+        <li>할일1</li>
+        <li>할일2</li>
+        <li>할일3</li>
+    </ul>
+
+    <script>
+
+        let title = document.getElementById("title");
+        let list = document.getElementById("list");
+        let li = list.getElementsByTagName("li");
+        let addBtn = document.getElementById("add-Btn");
+
+        addBtn.addEventListener("click", function(){
+            let txt = prompt("제목 입력");
+
+            // 할일이 입력 되었는지 체크 용
+            if(txt.length > 0){
+                list.innerHTML += "<li>" + txt + "</li>";
+            }else{
+                alert("입력한 할일을 입력해 주세요 ~~!!");
+            }
+        });
+
+        function activeItem(e){
+            if(e.target.nodeName == "LI"){
+                title.innerHTML = e.target.innerHTML;
+                //e.target
+                e.target.removeAttribute('style');
+
+                for(let i=0; i< e.target.parentNode.children.length; i++){
+                    e.target.parentNode.children[i].style.backgroundColor = "initial";
+                }
+
+                e.target.setAttribute('style', 'background-Color:yellow;');
+                //e.target.style.backgroundColor = "yellow";
+            }
+        }
+
+        list.addEventListener("click", activeItem);
+
+    </script>
+</body>
+</html>
